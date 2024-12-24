@@ -1,0 +1,40 @@
+/*
+（※任意）
+今回は複数個所で全く同じ太さ、線種、色を使いますので、CSSカスタム変数の定義をしています。
+*/
+igc-grid {
+    --my-border-color: black;
+    --my-border: 1px solid var(--my-border-color);
+}
+
+/*
+以下、各要素のborderを設定しています。
+四辺全部を設定していないのは、左右同士や上下同士のborderが隣接して太くなってしまうのを防ぐためです。
+今回はヘッダー部もデータ部も同じ色の線を引いていますが、
+いただいた画像を拝見すると、ヘッダー部は別の色の罫線がひかれているようにも見えました。
+その場合は、ヘッダー部の色をご要件に合わせてご自由に別の色に変えていただくだけでOKです
+※ただし、ヘッダー部とデータ部の境界の罫線をどちらの色にするかでborder-bottomをどちらがひくか微調整が必要になるかもしれません。
+*/
+
+/* ヘッダー行部 */
+div.igx-grid-thead__wrapper {
+    border-top: var(--my-border);
+    border-right: var(--my-border);
+    border-bottom-width: 0px;   /* 既定でヘッダー部とデータ部の間にわずかな隙間が空いています。それを詰めるための設定です。 */
+}
+
+/* ヘッダーセル部 */
+.igx-grid-th {
+    border-left: var(--my-border);
+    border-bottom: var(--my-border);
+}
+
+/* データ行部 */
+igx-grid-row.igx-grid__tr {
+    border-right: var(--my-border);
+    border-bottom: var(--my-border);
+}
+/* データセル部 */
+.igx-grid__td {
+    border-left: var(--my-border);
+}
